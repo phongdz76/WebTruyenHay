@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3e2a25f550034283a220d5ca3cb41c22" Name="Diagram1">
+        <EntityTypeShape EntityType="truyenModel.Chuong" Width="1.5" PointX="5.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="truyenModel.DanhGia" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="truyenModel.DanhMuc" Width="1.5" PointX="3" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="truyenModel.DanhSachDoc" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="truyenModel.DanhSachDocTruyen" Width="1.5" PointX="8.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="truyenModel.NguoiDung" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="truyenModel.ThongBao" Width="1.5" PointX="8.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="truyenModel.TienDoDoc" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="truyenModel.Truyen" Width="1.5" PointX="3" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="truyenModel.TruyenDanhMuc" Width="1.5" PointX="5.25" PointY="23.75" IsExpanded="true" />
+        <AssociationConnector Association="truyenModel.FK__Chuong__TruyenID__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="truyenModel.FK__DanhGia__NguoiDu__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="truyenModel.FK__DanhGia__TruyenI__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="truyenModel.FK__TruyenDan__DanhM__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="truyenModel.FK__DanhSachD__DanhS__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="truyenModel.FK__DanhSachD__Nguoi__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="truyenModel.FK__DanhSachD__Truye__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="truyenModel.FK__ThongBao__NguoiD__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="truyenModel.FK__TienDoDoc__Nguoi__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="truyenModel.FK__Truyen__TacGiaID__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="truyenModel.FK__ThongBao__Truyen__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="truyenModel.FK__TienDoDoc__Truye__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="truyenModel.FK__TruyenDan__Truye__412EB0B6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
