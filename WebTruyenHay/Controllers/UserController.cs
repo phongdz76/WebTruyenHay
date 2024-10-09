@@ -68,6 +68,7 @@ namespace WebTruyenHay.Controllers
                 var checkid = truyen.NguoiDungs.FirstOrDefault(f => f.IDuser == user.IDuser);
                 if (checkid == null)
                 {
+                    user.VaiTro = "0";
                     truyen.NguoiDungs.Add(user);
                     truyen.SaveChanges();
                     return RedirectToAction("Index");

@@ -289,6 +289,7 @@
     <Content Include="Views\truyen\Indexuser.cshtml" />
     <Content Include="Views\truyen\Index.cshtml" />
     <Content Include="Views\truyen\Create.cshtml" />
+    <Content Include="Views\truyen\Detailsuser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -149,6 +149,7 @@ namespace WebTruyenHay.Controllers
             }
             return View(product);
         }
+       
         public ActionResult Delete(String id)
         {
             var sach = truyendata.Truyens.Find(id);

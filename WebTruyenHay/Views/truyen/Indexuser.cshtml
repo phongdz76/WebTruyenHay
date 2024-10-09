@@ -97,14 +97,14 @@
         <div class="book-grid">
             @foreach (var truyen1 in Model)
             {
-                <div class="book-card">
-                    <img src="@Url.Content(truyen1.imagetruyen)" alt="@truyen1.TieuDe">
-                    <div class="book-info">
-                        <h3 class="book-title">@truyen1.TieuDe</h3>
-                        <div class="book-actions">
-                        </div>
+            <div class="book-card">
+                <img src="@Url.Content(truyen1.imagetruyen)" alt="@truyen1.TieuDe" class="book-image" data-idtruyen="@truyen1.IDtruyen">
+                <div class="book-info">
+                    <h3 class="book-title">@truyen1.TieuDe</h3>
+                    <div class="book-actions">
                     </div>
                 </div>
+            </div>
             }
         </div>
     </main>
@@ -122,5 +122,22 @@
             advancedSearchForm.style.display = 'none';
             advancedSearchLink.textContent = 'Tìm kiếm nâng cao';
         }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const bookGrid = document.querySelector('.book-grid');
+
+        bookGrid.addEventListener('click', function (event) {
+            const clickedElement = event.target;
+
+            if (clickedElement.classList.contains('book-image')) {
+                const IDtruyen = clickedElement.getAttribute('data-idtruyen');
+
+                if (IDtruyen) {
+                    // Replace '/truyen/details/' with the actual path to your details page
+                    window.location.href = `/truyen/Detailsuser/${IDtruyen}`;
+                }
+            }
+        });
     });
 </script>
