@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="truyenModelStoreContainer" CdmEntityContainer="truyenEntities1">
+  <EntityContainerMapping StorageEntityContainer="truyenhayModelStoreContainer" CdmEntityContainer="truyenhayEntities">
     <EntitySetMapping Name="Chuongs">
-      <EntityTypeMapping TypeName="truyenModel.Chuong">
+      <EntityTypeMapping TypeName="truyenhayModel.Chuong">
         <MappingFragment StoreEntitySet="Chuong">
           <ScalarProperty Name="IDchuong" ColumnName="IDchuong" />
           <ScalarProperty Name="TruyenID" ColumnName="TruyenID" />
@@ -15,7 +15,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DanhGias">
-      <EntityTypeMapping TypeName="truyenModel.DanhGia">
+      <EntityTypeMapping TypeName="truyenhayModel.DanhGia">
         <MappingFragment StoreEntitySet="DanhGia">
           <ScalarProperty Name="IDDanhGia" ColumnName="IDDanhGia" />
           <ScalarProperty Name="NguoiDungID" ColumnName="NguoiDungID" />
@@ -27,7 +27,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DanhMucs">
-      <EntityTypeMapping TypeName="truyenModel.DanhMuc">
+      <EntityTypeMapping TypeName="truyenhayModel.DanhMuc">
         <MappingFragment StoreEntitySet="DanhMuc">
           <ScalarProperty Name="IDdanhmuc" ColumnName="IDdanhmuc" />
           <ScalarProperty Name="TenDanhMuc" ColumnName="TenDanhMuc" />
@@ -35,7 +35,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DanhSachDocs">
-      <EntityTypeMapping TypeName="truyenModel.DanhSachDoc">
+      <EntityTypeMapping TypeName="truyenhayModel.DanhSachDoc">
         <MappingFragment StoreEntitySet="DanhSachDoc">
           <ScalarProperty Name="IDDanhSachDoc" ColumnName="IDDanhSachDoc" />
           <ScalarProperty Name="NguoiDungID" ColumnName="NguoiDungID" />
@@ -44,7 +44,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DanhSachDocTruyens">
-      <EntityTypeMapping TypeName="truyenModel.DanhSachDocTruyen">
+      <EntityTypeMapping TypeName="truyenhayModel.DanhSachDocTruyen">
         <MappingFragment StoreEntitySet="DanhSachDocTruyen">
           <ScalarProperty Name="DanhSachDocTruyenid" ColumnName="DanhSachDocTruyenid" />
           <ScalarProperty Name="DanhSachDocID" ColumnName="DanhSachDocID" />
@@ -54,7 +54,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="NguoiDungs">
-      <EntityTypeMapping TypeName="truyenModel.NguoiDung">
+      <EntityTypeMapping TypeName="truyenhayModel.NguoiDung">
         <MappingFragment StoreEntitySet="NguoiDung">
           <ScalarProperty Name="IDuser" ColumnName="IDuser" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -66,7 +66,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ThongBaos">
-      <EntityTypeMapping TypeName="truyenModel.ThongBao">
+      <EntityTypeMapping TypeName="truyenhayModel.ThongBao">
         <MappingFragment StoreEntitySet="ThongBao">
           <ScalarProperty Name="IDtb" ColumnName="IDtb" />
           <ScalarProperty Name="NguoiDungID" ColumnName="NguoiDungID" />
@@ -78,7 +78,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TienDoDocs">
-      <EntityTypeMapping TypeName="truyenModel.TienDoDoc">
+      <EntityTypeMapping TypeName="truyenhayModel.TienDoDoc">
         <MappingFragment StoreEntitySet="TienDoDoc">
           <ScalarProperty Name="idtiendo" ColumnName="idtiendo" />
           <ScalarProperty Name="NguoiDungID" ColumnName="NguoiDungID" />
@@ -89,12 +89,12 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Truyens">
-      <EntityTypeMapping TypeName="truyenModel.Truyen">
+      <EntityTypeMapping TypeName="truyenhayModel.Truyen">
         <MappingFragment StoreEntitySet="Truyen">
           <ScalarProperty Name="IDtruyen" ColumnName="IDtruyen" />
           <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
           <ScalarProperty Name="MoTa" ColumnName="MoTa" />
-          <ScalarProperty Name="TacGiaID" ColumnName="TacGiaID" />
+          <ScalarProperty Name="TacGia" ColumnName="TacGia" />
           <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
           <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
           <ScalarProperty Name="imagetruyen" ColumnName="imagetruyen" />
@@ -103,7 +103,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TruyenDanhMucs">
-      <EntityTypeMapping TypeName="truyenModel.TruyenDanhMuc">
+      <EntityTypeMapping TypeName="truyenhayModel.TruyenDanhMuc">
         <MappingFragment StoreEntitySet="TruyenDanhMuc">
           <ScalarProperty Name="IDTruyenDanhMuc" ColumnName="IDTruyenDanhMuc" />
           <ScalarProperty Name="TruyenID" ColumnName="TruyenID" />

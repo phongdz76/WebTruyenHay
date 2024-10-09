@@ -11,9 +11,15 @@ namespace WebTruyenHay.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web;
+
     public partial class Chuong
     {
+        public Chuong()
+        {
+            imagechuong = "~/Content/images/add.png";
+        }
+        public HttpPostedFileBase UploadImage { get; set; }
         public string IDchuong { get; set; }
         public string TruyenID { get; set; }
         public Nullable<int> SoThuTu { get; set; }

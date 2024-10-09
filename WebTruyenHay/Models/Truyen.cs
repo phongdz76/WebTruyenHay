@@ -24,13 +24,13 @@ namespace WebTruyenHay.Models
             this.ThongBaos = new HashSet<ThongBao>();
             this.TienDoDocs = new HashSet<TienDoDoc>();
             this.TruyenDanhMucs = new HashSet<TruyenDanhMuc>();
-            imagetruyen = "~/Content/imagess/add.jpg";
+            imagetruyen = "~/Content/images/add.png";
         }
         public HttpPostedFileBase UploadImage { get; set; }
         public string IDtruyen { get; set; }
         public string TieuDe { get; set; }
         public string MoTa { get; set; }
-        public string TacGiaID { get; set; }
+        public string TacGia { get; set; }
         public Nullable<System.DateTime> NgayTao { get; set; }
         public string TrangThai { get; set; }
         public string imagetruyen { get; set; }

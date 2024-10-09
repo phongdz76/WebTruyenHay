@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="truyenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="truyenhayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Chuong">
           <Key>
             <PropertyRef Name="IDchuong" />
@@ -91,7 +91,7 @@
           <Property Name="IDtruyen" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="TieuDe" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="MoTa" Type="text" />
-          <Property Name="TacGiaID" Type="varchar" MaxLength="255" />
+          <Property Name="TacGia" Type="varchar" MaxLength="255" />
           <Property Name="NgayTao" Type="date" />
           <Property Name="TrangThai" Type="varchar" MaxLength="255" />
           <Property Name="imagetruyen" Type="varchar" MaxLength="255" />
@@ -225,7 +225,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Truyen__TacGiaID__398D8EEE">
+        <Association Name="FK__Truyen__TacGia__398D8EEE">
           <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
           <End Role="Truyen" Type="Self.Truyen" Multiplicity="*" />
           <ReferentialConstraint>
@@ -233,7 +233,7 @@
               <PropertyRef Name="IDuser" />
             </Principal>
             <Dependent Role="Truyen">
-              <PropertyRef Name="TacGiaID" />
+              <PropertyRef Name="TacGia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -261,7 +261,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="truyenModelStoreContainer">
+        <EntityContainer Name="truyenhayModelStoreContainer">
           <EntitySet Name="Chuong" EntityType="Self.Chuong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DanhGia" EntityType="Self.DanhGia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
@@ -312,7 +312,7 @@
             <End Role="Truyen" EntitySet="Truyen" />
             <End Role="TienDoDoc" EntitySet="TienDoDoc" />
           </AssociationSet>
-          <AssociationSet Name="FK__Truyen__TacGiaID__398D8EEE" Association="Self.FK__Truyen__TacGiaID__398D8EEE">
+          <AssociationSet Name="FK__Truyen__TacGia__398D8EEE" Association="Self.FK__Truyen__TacGia__398D8EEE">
             <End Role="NguoiDung" EntitySet="NguoiDung" />
             <End Role="Truyen" EntitySet="Truyen" />
           </AssociationSet>
@@ -329,7 +329,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="truyenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="truyenhayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Chuong">
           <Key>
             <PropertyRef Name="IDchuong" />
@@ -399,7 +399,7 @@
           <NavigationProperty Name="DanhSachDocs" Relationship="Self.FK__DanhSachD__Nguoi__4D94879B" FromRole="NguoiDung" ToRole="DanhSachDoc" />
           <NavigationProperty Name="ThongBaos" Relationship="Self.FK__ThongBao__NguoiD__5441852A" FromRole="NguoiDung" ToRole="ThongBao" />
           <NavigationProperty Name="TienDoDocs" Relationship="Self.FK__TienDoDoc__Nguoi__49C3F6B7" FromRole="NguoiDung" ToRole="TienDoDoc" />
-          <NavigationProperty Name="Truyens" Relationship="Self.FK__Truyen__TacGiaID__398D8EEE" FromRole="NguoiDung" ToRole="Truyen" />
+          <NavigationProperty Name="Truyens" Relationship="Self.FK__Truyen__TacGia__398D8EEE" FromRole="NguoiDung" ToRole="Truyen" />
         </EntityType>
         <EntityType Name="ThongBao">
           <Key>
@@ -433,7 +433,7 @@
           <Property Name="IDtruyen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TieuDe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="TacGiaID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TacGia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="NgayTao" Type="DateTime" Precision="0" />
           <Property Name="TrangThai" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="imagetruyen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -441,7 +441,7 @@
           <NavigationProperty Name="Chuongs" Relationship="Self.FK__Chuong__TruyenID__3C69FB99" FromRole="Truyen" ToRole="Chuong" />
           <NavigationProperty Name="DanhGias" Relationship="Self.FK__DanhGia__TruyenI__46E78A0C" FromRole="Truyen" ToRole="DanhGia" />
           <NavigationProperty Name="DanhSachDocTruyens" Relationship="Self.FK__DanhSachD__Truye__5165187F" FromRole="Truyen" ToRole="DanhSachDocTruyen" />
-          <NavigationProperty Name="NguoiDung" Relationship="Self.FK__Truyen__TacGiaID__398D8EEE" FromRole="Truyen" ToRole="NguoiDung" />
+          <NavigationProperty Name="NguoiDung" Relationship="Self.FK__Truyen__TacGia__398D8EEE" FromRole="Truyen" ToRole="NguoiDung" />
           <NavigationProperty Name="ThongBaos" Relationship="Self.FK__ThongBao__Truyen__5535A963" FromRole="Truyen" ToRole="ThongBao" />
           <NavigationProperty Name="TienDoDocs" Relationship="Self.FK__TienDoDoc__Truye__4AB81AF0" FromRole="Truyen" ToRole="TienDoDoc" />
           <NavigationProperty Name="TruyenDanhMucs" Relationship="Self.FK__TruyenDan__Truye__412EB0B6" FromRole="Truyen" ToRole="TruyenDanhMuc" />
@@ -564,7 +564,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Truyen__TacGiaID__398D8EEE">
+        <Association Name="FK__Truyen__TacGia__398D8EEE">
           <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
           <End Role="Truyen" Type="Self.Truyen" Multiplicity="*" />
           <ReferentialConstraint>
@@ -572,7 +572,7 @@
               <PropertyRef Name="IDuser" />
             </Principal>
             <Dependent Role="Truyen">
-              <PropertyRef Name="TacGiaID" />
+              <PropertyRef Name="TacGia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -612,7 +612,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="truyenEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="truyenhayEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Chuongs" EntityType="Self.Chuong" />
           <EntitySet Name="DanhGias" EntityType="Self.DanhGia" />
           <EntitySet Name="DanhMucs" EntityType="Self.DanhMuc" />
@@ -659,7 +659,7 @@
             <End Role="NguoiDung" EntitySet="NguoiDungs" />
             <End Role="TienDoDoc" EntitySet="TienDoDocs" />
           </AssociationSet>
-          <AssociationSet Name="FK__Truyen__TacGiaID__398D8EEE" Association="Self.FK__Truyen__TacGiaID__398D8EEE">
+          <AssociationSet Name="FK__Truyen__TacGia__398D8EEE" Association="Self.FK__Truyen__TacGia__398D8EEE">
             <End Role="NguoiDung" EntitySet="NguoiDungs" />
             <End Role="Truyen" EntitySet="Truyens" />
           </AssociationSet>
@@ -681,9 +681,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="truyenModelStoreContainer" CdmEntityContainer="truyenEntities1">
+        <EntityContainerMapping StorageEntityContainer="truyenhayModelStoreContainer" CdmEntityContainer="truyenhayEntities">
           <EntitySetMapping Name="Chuongs">
-            <EntityTypeMapping TypeName="truyenModel.Chuong">
+            <EntityTypeMapping TypeName="truyenhayModel.Chuong">
               <MappingFragment StoreEntitySet="Chuong">
                 <ScalarProperty Name="IDchuong" ColumnName="IDchuong" />
                 <ScalarProperty Name="TruyenID" ColumnName="TruyenID" />
@@ -696,7 +696,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DanhGias">
-            <EntityTypeMapping TypeName="truyenModel.DanhGia">
+            <EntityTypeMapping TypeName="truyenhayModel.DanhGia">
               <MappingFragment StoreEntitySet="DanhGia">
                 <ScalarProperty Name="IDDanhGia" ColumnName="IDDanhGia" />
                 <ScalarProperty Name="NguoiDungID" ColumnName="NguoiDungID" />
@@ -708,7 +708,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DanhMucs">
-            <EntityTypeMapping TypeName="truyenModel.DanhMuc">
+            <EntityTypeMapping TypeName="truyenhayModel.DanhMuc">
               <MappingFragment StoreEntitySet="DanhMuc">
                 <ScalarProperty Name="IDdanhmuc" ColumnName="IDdanhmuc" />
                 <ScalarProperty Name="TenDanhMuc" ColumnName="TenDanhMuc" />
@@ -716,7 +716,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DanhSachDocs">
-            <EntityTypeMapping TypeName="truyenModel.DanhSachDoc">
+            <EntityTypeMapping TypeName="truyenhayModel.DanhSachDoc">
               <MappingFragment StoreEntitySet="DanhSachDoc">
                 <ScalarProperty Name="IDDanhSachDoc" ColumnName="IDDanhSachDoc" />
                 <ScalarProperty Name="NguoiDungID" ColumnName="NguoiDungID" />
@@ -725,7 +725,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DanhSachDocTruyens">
-            <EntityTypeMapping TypeName="truyenModel.DanhSachDocTruyen">
+            <EntityTypeMapping TypeName="truyenhayModel.DanhSachDocTruyen">
               <MappingFragment StoreEntitySet="DanhSachDocTruyen">
                 <ScalarProperty Name="DanhSachDocTruyenid" ColumnName="DanhSachDocTruyenid" />
                 <ScalarProperty Name="DanhSachDocID" ColumnName="DanhSachDocID" />
@@ -735,7 +735,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NguoiDungs">
-            <EntityTypeMapping TypeName="truyenModel.NguoiDung">
+            <EntityTypeMapping TypeName="truyenhayModel.NguoiDung">
               <MappingFragment StoreEntitySet="NguoiDung">
                 <ScalarProperty Name="IDuser" ColumnName="IDuser" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -747,7 +747,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ThongBaos">
-            <EntityTypeMapping TypeName="truyenModel.ThongBao">
+            <EntityTypeMapping TypeName="truyenhayModel.ThongBao">
               <MappingFragment StoreEntitySet="ThongBao">
                 <ScalarProperty Name="IDtb" ColumnName="IDtb" />
                 <ScalarProperty Name="NguoiDungID" ColumnName="NguoiDungID" />
@@ -759,7 +759,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TienDoDocs">
-            <EntityTypeMapping TypeName="truyenModel.TienDoDoc">
+            <EntityTypeMapping TypeName="truyenhayModel.TienDoDoc">
               <MappingFragment StoreEntitySet="TienDoDoc">
                 <ScalarProperty Name="idtiendo" ColumnName="idtiendo" />
                 <ScalarProperty Name="NguoiDungID" ColumnName="NguoiDungID" />
@@ -770,12 +770,12 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Truyens">
-            <EntityTypeMapping TypeName="truyenModel.Truyen">
+            <EntityTypeMapping TypeName="truyenhayModel.Truyen">
               <MappingFragment StoreEntitySet="Truyen">
                 <ScalarProperty Name="IDtruyen" ColumnName="IDtruyen" />
                 <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
                 <ScalarProperty Name="MoTa" ColumnName="MoTa" />
-                <ScalarProperty Name="TacGiaID" ColumnName="TacGiaID" />
+                <ScalarProperty Name="TacGia" ColumnName="TacGia" />
                 <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
                 <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
                 <ScalarProperty Name="imagetruyen" ColumnName="imagetruyen" />
@@ -784,7 +784,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TruyenDanhMucs">
-            <EntityTypeMapping TypeName="truyenModel.TruyenDanhMuc">
+            <EntityTypeMapping TypeName="truyenhayModel.TruyenDanhMuc">
               <MappingFragment StoreEntitySet="TruyenDanhMuc">
                 <ScalarProperty Name="IDTruyenDanhMuc" ColumnName="IDTruyenDanhMuc" />
                 <ScalarProperty Name="TruyenID" ColumnName="TruyenID" />

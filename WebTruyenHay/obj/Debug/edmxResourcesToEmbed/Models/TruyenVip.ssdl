@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="truyenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="truyenhayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Chuong">
     <Key>
       <PropertyRef Name="IDchuong" />
@@ -86,7 +86,7 @@
     <Property Name="IDtruyen" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="TieuDe" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="MoTa" Type="text" />
-    <Property Name="TacGiaID" Type="varchar" MaxLength="255" />
+    <Property Name="TacGia" Type="varchar" MaxLength="255" />
     <Property Name="NgayTao" Type="date" />
     <Property Name="TrangThai" Type="varchar" MaxLength="255" />
     <Property Name="imagetruyen" Type="varchar" MaxLength="255" />
@@ -220,7 +220,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Truyen__TacGiaID__398D8EEE">
+  <Association Name="FK__Truyen__TacGia__398D8EEE">
     <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
     <End Role="Truyen" Type="Self.Truyen" Multiplicity="*" />
     <ReferentialConstraint>
@@ -228,7 +228,7 @@
         <PropertyRef Name="IDuser" />
       </Principal>
       <Dependent Role="Truyen">
-        <PropertyRef Name="TacGiaID" />
+        <PropertyRef Name="TacGia" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -256,7 +256,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="truyenModelStoreContainer">
+  <EntityContainer Name="truyenhayModelStoreContainer">
     <EntitySet Name="Chuong" EntityType="Self.Chuong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DanhGia" EntityType="Self.DanhGia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
@@ -307,7 +307,7 @@
       <End Role="Truyen" EntitySet="Truyen" />
       <End Role="TienDoDoc" EntitySet="TienDoDoc" />
     </AssociationSet>
-    <AssociationSet Name="FK__Truyen__TacGiaID__398D8EEE" Association="Self.FK__Truyen__TacGiaID__398D8EEE">
+    <AssociationSet Name="FK__Truyen__TacGia__398D8EEE" Association="Self.FK__Truyen__TacGia__398D8EEE">
       <End Role="NguoiDung" EntitySet="NguoiDung" />
       <End Role="Truyen" EntitySet="Truyen" />
     </AssociationSet>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="truyenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="truyenhayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Chuong">
     <Key>
       <PropertyRef Name="IDchuong" />
@@ -69,7 +69,7 @@
     <NavigationProperty Name="DanhSachDocs" Relationship="Self.FK__DanhSachD__Nguoi__4D94879B" FromRole="NguoiDung" ToRole="DanhSachDoc" />
     <NavigationProperty Name="ThongBaos" Relationship="Self.FK__ThongBao__NguoiD__5441852A" FromRole="NguoiDung" ToRole="ThongBao" />
     <NavigationProperty Name="TienDoDocs" Relationship="Self.FK__TienDoDoc__Nguoi__49C3F6B7" FromRole="NguoiDung" ToRole="TienDoDoc" />
-    <NavigationProperty Name="Truyens" Relationship="Self.FK__Truyen__TacGiaID__398D8EEE" FromRole="NguoiDung" ToRole="Truyen" />
+    <NavigationProperty Name="Truyens" Relationship="Self.FK__Truyen__TacGia__398D8EEE" FromRole="NguoiDung" ToRole="Truyen" />
   </EntityType>
   <EntityType Name="ThongBao">
     <Key>
@@ -103,7 +103,7 @@
     <Property Name="IDtruyen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="TieuDe" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="TacGiaID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TacGia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="NgayTao" Type="DateTime" Precision="0" />
     <Property Name="TrangThai" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="imagetruyen" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -111,7 +111,7 @@
     <NavigationProperty Name="Chuongs" Relationship="Self.FK__Chuong__TruyenID__3C69FB99" FromRole="Truyen" ToRole="Chuong" />
     <NavigationProperty Name="DanhGias" Relationship="Self.FK__DanhGia__TruyenI__46E78A0C" FromRole="Truyen" ToRole="DanhGia" />
     <NavigationProperty Name="DanhSachDocTruyens" Relationship="Self.FK__DanhSachD__Truye__5165187F" FromRole="Truyen" ToRole="DanhSachDocTruyen" />
-    <NavigationProperty Name="NguoiDung" Relationship="Self.FK__Truyen__TacGiaID__398D8EEE" FromRole="Truyen" ToRole="NguoiDung" />
+    <NavigationProperty Name="NguoiDung" Relationship="Self.FK__Truyen__TacGia__398D8EEE" FromRole="Truyen" ToRole="NguoiDung" />
     <NavigationProperty Name="ThongBaos" Relationship="Self.FK__ThongBao__Truyen__5535A963" FromRole="Truyen" ToRole="ThongBao" />
     <NavigationProperty Name="TienDoDocs" Relationship="Self.FK__TienDoDoc__Truye__4AB81AF0" FromRole="Truyen" ToRole="TienDoDoc" />
     <NavigationProperty Name="TruyenDanhMucs" Relationship="Self.FK__TruyenDan__Truye__412EB0B6" FromRole="Truyen" ToRole="TruyenDanhMuc" />
@@ -234,7 +234,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Truyen__TacGiaID__398D8EEE">
+  <Association Name="FK__Truyen__TacGia__398D8EEE">
     <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
     <End Role="Truyen" Type="Self.Truyen" Multiplicity="*" />
     <ReferentialConstraint>
@@ -242,7 +242,7 @@
         <PropertyRef Name="IDuser" />
       </Principal>
       <Dependent Role="Truyen">
-        <PropertyRef Name="TacGiaID" />
+        <PropertyRef Name="TacGia" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -282,7 +282,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="truyenEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="truyenhayEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Chuongs" EntityType="Self.Chuong" />
     <EntitySet Name="DanhGias" EntityType="Self.DanhGia" />
     <EntitySet Name="DanhMucs" EntityType="Self.DanhMuc" />
@@ -329,7 +329,7 @@
       <End Role="NguoiDung" EntitySet="NguoiDungs" />
       <End Role="TienDoDoc" EntitySet="TienDoDocs" />
     </AssociationSet>
-    <AssociationSet Name="FK__Truyen__TacGiaID__398D8EEE" Association="Self.FK__Truyen__TacGiaID__398D8EEE">
+    <AssociationSet Name="FK__Truyen__TacGia__398D8EEE" Association="Self.FK__Truyen__TacGia__398D8EEE">
       <End Role="NguoiDung" EntitySet="NguoiDungs" />
       <End Role="Truyen" EntitySet="Truyens" />
     </AssociationSet>

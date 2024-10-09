@@ -13,10 +13,10 @@ namespace WebTruyenHay.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class truyenEntities1 : DbContext
+    public partial class truyenhayEntities : DbContext
     {
-        public truyenEntities1()
-            : base("name=truyenEntities1")
+        public truyenhayEntities()
+            : base("name=truyenhayEntities")
         {
         }
     

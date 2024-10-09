@@ -11,19 +11,19 @@ namespace WebTruyenHay.Controllers
 {
     public class truyenController : Controller
     {
-        truyenEntities1 truyen = new truyenEntities1();
+        truyenhayEntities truyendata = new truyenhayEntities();
         // GET: truyen
         public ActionResult Index(string category)
         {
 
             if (category == null)
             {
-                var productList = truyen.Truyens.OrderByDescending(x => x.TieuDe);
+                var productList = truyendata.Truyens.OrderByDescending(x => x.TieuDe);
                 return View(productList);
             }
             else
             {
-                var productList = truyen.Truyens.OrderByDescending(x => x.TieuDe)
+                var productList = truyendata.Truyens.OrderByDescending(x => x.TieuDe)
                 .Where(x => x.theloai == category);
                 return View(productList);
             }
@@ -34,12 +34,12 @@ namespace WebTruyenHay.Controllers
 
             if (category == null)
             {
-                var productList = truyen.Truyens.OrderByDescending(x => x.TieuDe);
+                var productList = truyendata.Truyens.OrderByDescending(x => x.TieuDe);
                 return View(productList);
             }
             else
             {
-                var productList = truyen.Truyens.OrderByDescending(x => x.TieuDe)
+                var productList = truyendata.Truyens.OrderByDescending(x => x.TieuDe)
                 .Where(x => x.theloai == category);
                 return View(productList);
             }
@@ -47,36 +47,42 @@ namespace WebTruyenHay.Controllers
         }
         public ActionResult Create()
         {
-            Truyen sach = new Truyen();
-            return View(sach);
+            Truyen truyen1 = new Truyen();
+            return View(truyen1);
         }
         [HttpPost]
 
-        public ActionResult Create(Truyen sach)
+        public ActionResult Create(Truyen truyen1)
         {
             try
             {
-                if (sach.UploadImage != null)
+                if (ModelState.IsValid) 
                 {
-                    string filename = Path.GetFileNameWithoutExtension(sach.UploadImage.FileName);
-                    string extent = Path.GetExtension(sach.UploadImage.FileName);
-                    filename = filename + extent;
-                    sach.imagetruyen = "~/Content/images/" + filename;
-                    sach.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), filename));
-                    sach.NgayTao = DateTime.Now;
+                    if (truyen1.UploadImage != null && truyen1.UploadImage.ContentLength > 0)
+                    {
+                        string filename = Path.GetFileNameWithoutExtension(truyen1.UploadImage.FileName);
+                        string extent = Path.GetExtension(truyen1.UploadImage.FileName);
+                        filename = filename + extent;
+                        truyen1.imagetruyen = "~/Content/images/" + filename;
+                        truyen1.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), filename));
+                    }
+                   
+                    truyen1.IDtruyen = Guid.NewGuid().ToString("N").Substring(0, 8);
+                    truyen1.NgayTao = DateTime.Now;
+                    truyendata.Truyens.Add(truyen1);
+                    truyendata.SaveChanges();
+                    return RedirectToAction("Index");
                 }
-                truyen.Truyens.Add(sach);
-                truyen.SaveChanges();
-                return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ViewBag.ErrorMessage = ex.Message; 
             }
+            return View(truyen1);
         }
-        public ActionResult Edit(int id)
+        public ActionResult Edit(String id)
         {
-            var product = truyen.Truyens.Find(id);
+            var product = truyendata.Truyens.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -91,7 +97,7 @@ namespace WebTruyenHay.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var existingProduct = truyen.Truyens.Find(sach.IDtruyen);
+                    var existingProduct = truyendata.Truyens.Find(sach.IDtruyen);
                     if (existingProduct == null)
                     {
                         return HttpNotFound();
@@ -114,7 +120,7 @@ namespace WebTruyenHay.Controllers
                     }
 
                     // Lưu thay đổi vào database
-                    truyen.SaveChanges();
+                    truyendata.SaveChanges();
 
                     return RedirectToAction("Index");
                 }
@@ -125,52 +131,41 @@ namespace WebTruyenHay.Controllers
                 return View();
             }
         }
-        public ActionResult Detailsuser(int id)
+        public ActionResult Detailsuser(String id)
         {
-            var product = truyen.Truyens.Find(id);
+            var product = truyendata.Truyens.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
             }
             return View(product);
         }
-        public ActionResult Details(int id)
+        public ActionResult Details(String id)
         {
-            var product = truyen.Truyens.Find(id);
+            var product = truyendata.Truyens.Find(id);
             if (product == null)
             {
                 return HttpNotFound();
             }
             return View(product);
         }
-        public ActionResult Delete(int id)
+        public ActionResult Delete(String id)
         {
-            var sach = truyen.Truyens.Find(id);
+            var sach = truyendata.Truyens.Find(id);
             if (sach == null)
             {
                 return HttpNotFound();
             }
-            return View(sach);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            var product = truyen.Truyens.Find(id);
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
             // Xóa sản phẩm
-            truyen.Truyens.Remove(product);
-            truyen.SaveChanges();
+            truyendata.Truyens.Remove(sach);
+            truyendata.SaveChanges();
 
             return RedirectToAction("Index");
         }
 
         public ActionResult Search(string searchString)
         {
-            var productList = truyen.Truyens.OrderByDescending(x => x.TieuDe);
+            var productList = truyendata.Truyens.OrderByDescending(x => x.TieuDe);
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -181,7 +176,7 @@ namespace WebTruyenHay.Controllers
         }
         public ActionResult Searchuser(string searchString)
         {
-            var productList = truyen.Truyens.OrderByDescending(x => x.TieuDe);
+            var productList = truyendata.Truyens.OrderByDescending(x => x.TieuDe);
 
             if (!string.IsNullOrEmpty(searchString))
             {
@@ -194,7 +189,7 @@ namespace WebTruyenHay.Controllers
         }
         public ActionResult AdvancedSearch(string title, string author, string category)
         {
-            var books = truyen.Truyens.AsQueryable();
+            var books = truyendata.Truyens.AsQueryable();
 
             if (!string.IsNullOrEmpty(title))
             {
@@ -203,7 +198,7 @@ namespace WebTruyenHay.Controllers
 
             if (!string.IsNullOrEmpty(author))
             {
-                books = books.Where(b => b.TacGiaID.Contains(author));
+                books = books.Where(b => b.TacGia.Contains(author));
             }
 
             if (!string.IsNullOrEmpty(category))
@@ -214,7 +209,7 @@ namespace WebTruyenHay.Controllers
         }
         public ActionResult AdvancedSearchuser(string title, string author, string category)
         {
-            var books = truyen.Truyens.AsQueryable();
+            var books = truyendata.Truyens.AsQueryable();
 
             if (!string.IsNullOrEmpty(title))
             {
@@ -223,7 +218,7 @@ namespace WebTruyenHay.Controllers
 
             if (!string.IsNullOrEmpty(author))
             {
-                books = books.Where(b => b.TacGiaID.Contains(author));
+                books = books.Where(b => b.TacGia.Contains(author));
             }
 
             if (!string.IsNullOrEmpty(category))
@@ -234,7 +229,7 @@ namespace WebTruyenHay.Controllers
         }
         public ActionResult chuong(int id)
         {
-            var sach = truyen.Truyens.Find(id);
+            var sach = truyendata.Truyens.Find(id);
             if (sach == null)
             {
                 return HttpNotFound();
@@ -253,13 +248,63 @@ namespace WebTruyenHay.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (chuong.UploadImage != null)
+                {
+                    string filename = Path.GetFileNameWithoutExtension(chuong.UploadImage.FileName);
+                    string extent = Path.GetExtension(chuong.UploadImage.FileName);
+                    filename = filename + extent;
+                    chuong.imagechuong = "~/Content/images/" + filename;
+                    chuong.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Content/images/"), filename));
+                    chuong.NgayDang = DateTime.Now;
+                }
                 chuong.NgayDang = DateTime.Now;
-                truyen.Chuongs.Add(chuong);
-                truyen.SaveChanges();
+                truyendata.Chuongs.Add(chuong);
+                truyendata.SaveChanges();
                 return RedirectToAction("Details", new { id = chuong.TruyenID });
             }
 
             return View(chuong);
         }
+        public ActionResult nextchap(int thutu)
+        {
+            var currentChapter = truyendata.Chuongs.Find(thutu);
+            if (currentChapter == null)
+            {
+                return HttpNotFound();
+            }
+
+            var nextChapter = truyendata.Chuongs
+                .Where(c => c.SoThuTu > thutu)
+                .OrderBy(c => c.SoThuTu)
+                .FirstOrDefault();
+
+            if (nextChapter == null)
+            {
+                return RedirectToAction("LastChapter");
+            }
+
+            return View("ChapterView", nextChapter);
+        }
+        public ActionResult returnchap(int thutu)
+        {
+            var currentChapter = truyendata.Chuongs.Find(thutu);
+            if (currentChapter == null)
+            {
+                return HttpNotFound();
+            }
+
+            var returnChapter = truyendata.Chuongs
+                .Where(c => c.SoThuTu < thutu)
+                .OrderBy(c => c.SoThuTu)
+                .FirstOrDefault();
+
+            if (returnChapter == null)
+            {
+                return RedirectToAction("LastChapter");
+            }
+
+            return View("ChapterView", returnChapter);
+        }
+        
     }
 }
