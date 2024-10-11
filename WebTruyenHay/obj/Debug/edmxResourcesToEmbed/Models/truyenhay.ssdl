@@ -10,7 +10,6 @@
     <Property Name="TieuDe" Type="varchar" MaxLength="255" />
     <Property Name="NoiDung" Type="text" />
     <Property Name="NgayDang" Type="date" />
-    <Property Name="imagechuong" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="DanhGia">
     <Key>
@@ -46,6 +45,14 @@
     <Property Name="DanhSachDocID" Type="varchar" MaxLength="255" />
     <Property Name="TruyenID" Type="varchar" MaxLength="255" />
     <Property Name="NgayThem" Type="date" />
+  </EntityType>
+  <EntityType Name="imagechuong">
+    <Key>
+      <PropertyRef Name="IDchuongimage" />
+    </Key>
+    <Property Name="IDchuongimage" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IDchuong" Type="varchar" MaxLength="255" />
+    <Property Name="imagechuong" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="NguoiDung">
     <Key>
@@ -100,7 +107,7 @@
     <Property Name="TruyenID" Type="varchar" MaxLength="255" />
     <Property Name="DanhMucID" Type="varchar" MaxLength="255" />
   </EntityType>
-  <Association Name="FK__Chuong__TruyenID__3C69FB99">
+  <Association Name="FK__Chuong__TruyenID__3B75D760">
     <End Role="Truyen" Type="Self.Truyen" Multiplicity="0..1" />
     <End Role="Chuong" Type="Self.Chuong" Multiplicity="*" />
     <ReferentialConstraint>
@@ -112,7 +119,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DanhGia__NguoiDu__45F365D3">
+  <Association Name="FK__DanhGia__NguoiDu__47DBAE45">
     <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
     <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
     <ReferentialConstraint>
@@ -124,7 +131,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DanhGia__TruyenI__46E78A0C">
+  <Association Name="FK__DanhGia__TruyenI__48CFD27E">
     <End Role="Truyen" Type="Self.Truyen" Multiplicity="0..1" />
     <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
     <ReferentialConstraint>
@@ -136,7 +143,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DanhSachD__DanhS__5070F446">
+  <Association Name="FK__DanhSachD__DanhS__52593CB8">
     <End Role="DanhSachDoc" Type="Self.DanhSachDoc" Multiplicity="0..1" />
     <End Role="DanhSachDocTruyen" Type="Self.DanhSachDocTruyen" Multiplicity="*" />
     <ReferentialConstraint>
@@ -148,7 +155,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DanhSachD__Nguoi__4D94879B">
+  <Association Name="FK__DanhSachD__Nguoi__4F7CD00D">
     <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
     <End Role="DanhSachDoc" Type="Self.DanhSachDoc" Multiplicity="*" />
     <ReferentialConstraint>
@@ -160,7 +167,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DanhSachD__Truye__5165187F">
+  <Association Name="FK__DanhSachD__Truye__534D60F1">
     <End Role="Truyen" Type="Self.Truyen" Multiplicity="0..1" />
     <End Role="DanhSachDocTruyen" Type="Self.DanhSachDocTruyen" Multiplicity="*" />
     <ReferentialConstraint>
@@ -172,7 +179,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ThongBao__NguoiD__5441852A">
+  <Association Name="FK__imagechuo__IDchu__3E52440B">
+    <End Role="Chuong" Type="Self.Chuong" Multiplicity="0..1" />
+    <End Role="imagechuong" Type="Self.imagechuong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chuong">
+        <PropertyRef Name="IDchuong" />
+      </Principal>
+      <Dependent Role="imagechuong">
+        <PropertyRef Name="IDchuong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ThongBao__NguoiD__5629CD9C">
     <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
     <End Role="ThongBao" Type="Self.ThongBao" Multiplicity="*" />
     <ReferentialConstraint>
@@ -184,7 +203,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ThongBao__Truyen__5535A963">
+  <Association Name="FK__ThongBao__Truyen__571DF1D5">
     <End Role="Truyen" Type="Self.Truyen" Multiplicity="0..1" />
     <End Role="ThongBao" Type="Self.ThongBao" Multiplicity="*" />
     <ReferentialConstraint>
@@ -196,7 +215,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TienDoDoc__Nguoi__49C3F6B7">
+  <Association Name="FK__TienDoDoc__Nguoi__4BAC3F29">
     <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
     <End Role="TienDoDoc" Type="Self.TienDoDoc" Multiplicity="*" />
     <ReferentialConstraint>
@@ -208,7 +227,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TienDoDoc__Truye__4AB81AF0">
+  <Association Name="FK__TienDoDoc__Truye__4CA06362">
     <End Role="Truyen" Type="Self.Truyen" Multiplicity="0..1" />
     <End Role="TienDoDoc" Type="Self.TienDoDoc" Multiplicity="*" />
     <ReferentialConstraint>
@@ -220,19 +239,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Truyen__TacGia__398D8EEE">
-    <End Role="NguoiDung" Type="Self.NguoiDung" Multiplicity="0..1" />
-    <End Role="Truyen" Type="Self.Truyen" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NguoiDung">
-        <PropertyRef Name="IDuser" />
-      </Principal>
-      <Dependent Role="Truyen">
-        <PropertyRef Name="TacGia" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__TruyenDan__DanhM__4222D4EF">
+  <Association Name="FK__TruyenDan__DanhM__440B1D61">
     <End Role="DanhMuc" Type="Self.DanhMuc" Multiplicity="0..1" />
     <End Role="TruyenDanhMuc" Type="Self.TruyenDanhMuc" Multiplicity="*" />
     <ReferentialConstraint>
@@ -244,7 +251,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TruyenDan__Truye__412EB0B6">
+  <Association Name="FK__TruyenDan__Truye__4316F928">
     <End Role="Truyen" Type="Self.Truyen" Multiplicity="0..1" />
     <End Role="TruyenDanhMuc" Type="Self.TruyenDanhMuc" Multiplicity="*" />
     <ReferentialConstraint>
@@ -262,60 +269,61 @@
     <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DanhSachDoc" EntityType="Self.DanhSachDoc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DanhSachDocTruyen" EntityType="Self.DanhSachDocTruyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="imagechuong" EntityType="Self.imagechuong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ThongBao" EntityType="Self.ThongBao" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TienDoDoc" EntityType="Self.TienDoDoc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Truyen" EntityType="Self.Truyen" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TruyenDanhMuc" EntityType="Self.TruyenDanhMuc" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Chuong__TruyenID__3C69FB99" Association="Self.FK__Chuong__TruyenID__3C69FB99">
+    <AssociationSet Name="FK__Chuong__TruyenID__3B75D760" Association="Self.FK__Chuong__TruyenID__3B75D760">
       <End Role="Truyen" EntitySet="Truyen" />
       <End Role="Chuong" EntitySet="Chuong" />
     </AssociationSet>
-    <AssociationSet Name="FK__DanhGia__NguoiDu__45F365D3" Association="Self.FK__DanhGia__NguoiDu__45F365D3">
+    <AssociationSet Name="FK__DanhGia__NguoiDu__47DBAE45" Association="Self.FK__DanhGia__NguoiDu__47DBAE45">
       <End Role="NguoiDung" EntitySet="NguoiDung" />
       <End Role="DanhGia" EntitySet="DanhGia" />
     </AssociationSet>
-    <AssociationSet Name="FK__DanhGia__TruyenI__46E78A0C" Association="Self.FK__DanhGia__TruyenI__46E78A0C">
+    <AssociationSet Name="FK__DanhGia__TruyenI__48CFD27E" Association="Self.FK__DanhGia__TruyenI__48CFD27E">
       <End Role="Truyen" EntitySet="Truyen" />
       <End Role="DanhGia" EntitySet="DanhGia" />
     </AssociationSet>
-    <AssociationSet Name="FK__DanhSachD__DanhS__5070F446" Association="Self.FK__DanhSachD__DanhS__5070F446">
+    <AssociationSet Name="FK__DanhSachD__DanhS__52593CB8" Association="Self.FK__DanhSachD__DanhS__52593CB8">
       <End Role="DanhSachDoc" EntitySet="DanhSachDoc" />
       <End Role="DanhSachDocTruyen" EntitySet="DanhSachDocTruyen" />
     </AssociationSet>
-    <AssociationSet Name="FK__DanhSachD__Nguoi__4D94879B" Association="Self.FK__DanhSachD__Nguoi__4D94879B">
+    <AssociationSet Name="FK__DanhSachD__Nguoi__4F7CD00D" Association="Self.FK__DanhSachD__Nguoi__4F7CD00D">
       <End Role="NguoiDung" EntitySet="NguoiDung" />
       <End Role="DanhSachDoc" EntitySet="DanhSachDoc" />
     </AssociationSet>
-    <AssociationSet Name="FK__DanhSachD__Truye__5165187F" Association="Self.FK__DanhSachD__Truye__5165187F">
+    <AssociationSet Name="FK__DanhSachD__Truye__534D60F1" Association="Self.FK__DanhSachD__Truye__534D60F1">
       <End Role="Truyen" EntitySet="Truyen" />
       <End Role="DanhSachDocTruyen" EntitySet="DanhSachDocTruyen" />
     </AssociationSet>
-    <AssociationSet Name="FK__ThongBao__NguoiD__5441852A" Association="Self.FK__ThongBao__NguoiD__5441852A">
+    <AssociationSet Name="FK__imagechuo__IDchu__3E52440B" Association="Self.FK__imagechuo__IDchu__3E52440B">
+      <End Role="Chuong" EntitySet="Chuong" />
+      <End Role="imagechuong" EntitySet="imagechuong" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ThongBao__NguoiD__5629CD9C" Association="Self.FK__ThongBao__NguoiD__5629CD9C">
       <End Role="NguoiDung" EntitySet="NguoiDung" />
       <End Role="ThongBao" EntitySet="ThongBao" />
     </AssociationSet>
-    <AssociationSet Name="FK__ThongBao__Truyen__5535A963" Association="Self.FK__ThongBao__Truyen__5535A963">
+    <AssociationSet Name="FK__ThongBao__Truyen__571DF1D5" Association="Self.FK__ThongBao__Truyen__571DF1D5">
       <End Role="Truyen" EntitySet="Truyen" />
       <End Role="ThongBao" EntitySet="ThongBao" />
     </AssociationSet>
-    <AssociationSet Name="FK__TienDoDoc__Nguoi__49C3F6B7" Association="Self.FK__TienDoDoc__Nguoi__49C3F6B7">
+    <AssociationSet Name="FK__TienDoDoc__Nguoi__4BAC3F29" Association="Self.FK__TienDoDoc__Nguoi__4BAC3F29">
       <End Role="NguoiDung" EntitySet="NguoiDung" />
       <End Role="TienDoDoc" EntitySet="TienDoDoc" />
     </AssociationSet>
-    <AssociationSet Name="FK__TienDoDoc__Truye__4AB81AF0" Association="Self.FK__TienDoDoc__Truye__4AB81AF0">
+    <AssociationSet Name="FK__TienDoDoc__Truye__4CA06362" Association="Self.FK__TienDoDoc__Truye__4CA06362">
       <End Role="Truyen" EntitySet="Truyen" />
       <End Role="TienDoDoc" EntitySet="TienDoDoc" />
     </AssociationSet>
-    <AssociationSet Name="FK__Truyen__TacGia__398D8EEE" Association="Self.FK__Truyen__TacGia__398D8EEE">
-      <End Role="NguoiDung" EntitySet="NguoiDung" />
-      <End Role="Truyen" EntitySet="Truyen" />
-    </AssociationSet>
-    <AssociationSet Name="FK__TruyenDan__DanhM__4222D4EF" Association="Self.FK__TruyenDan__DanhM__4222D4EF">
+    <AssociationSet Name="FK__TruyenDan__DanhM__440B1D61" Association="Self.FK__TruyenDan__DanhM__440B1D61">
       <End Role="DanhMuc" EntitySet="DanhMuc" />
       <End Role="TruyenDanhMuc" EntitySet="TruyenDanhMuc" />
     </AssociationSet>
-    <AssociationSet Name="FK__TruyenDan__Truye__412EB0B6" Association="Self.FK__TruyenDan__Truye__412EB0B6">
+    <AssociationSet Name="FK__TruyenDan__Truye__4316F928" Association="Self.FK__TruyenDan__Truye__4316F928">
       <End Role="Truyen" EntitySet="Truyen" />
       <End Role="TruyenDanhMuc" EntitySet="TruyenDanhMuc" />
     </AssociationSet>

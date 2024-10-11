@@ -13,10 +13,10 @@ namespace WebTruyenHay.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class truyenEntities1 : DbContext
+    public partial class truyenhayEntities1 : DbContext
     {
-        public truyenEntities1()
-            : base("name=truyenEntities1")
+        public truyenhayEntities1()
+            : base("name=truyenhayEntities1")
         {
         }
     
@@ -30,6 +30,7 @@ namespace WebTruyenHay.Models
         public virtual DbSet<DanhMuc> DanhMucs { get; set; }
         public virtual DbSet<DanhSachDoc> DanhSachDocs { get; set; }
         public virtual DbSet<DanhSachDocTruyen> DanhSachDocTruyens { get; set; }
+        public virtual DbSet<imagechuong> imagechuongs { get; set; }
         public virtual DbSet<NguoiDung> NguoiDungs { get; set; }
         public virtual DbSet<ThongBao> ThongBaos { get; set; }
         public virtual DbSet<TienDoDoc> TienDoDocs { get; set; }

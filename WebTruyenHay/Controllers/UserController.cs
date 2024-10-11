@@ -10,7 +10,7 @@ namespace WebTruyenHay.Controllers
 {
     public class UserController : Controller
     {
-        truyenEntities1 truyen = new truyenEntities1();
+        truyenhayEntities1 truyen = new truyenhayEntities1();
         // GET: User
         public ActionResult Index()
         {
@@ -68,6 +68,7 @@ namespace WebTruyenHay.Controllers
                 var checkid = truyen.NguoiDungs.FirstOrDefault(f => f.IDuser == user.IDuser);
                 if (checkid == null)
                 {
+                    user.VaiTro = "0";
                     truyen.NguoiDungs.Add(user);
                     truyen.SaveChanges();
                     return RedirectToAction("Index");
@@ -130,7 +131,6 @@ namespace WebTruyenHay.Controllers
             ViewBag.Email = email; // Lưu email vào ViewBag để truyền vào form
             return View(user);
         }
-
 
         [HttpPost]
         public ActionResult UpdatePassword(string email, string newPassword, string confirmPassword)

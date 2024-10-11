@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="truyenhayModelStoreContainer" CdmEntityContainer="truyenhayEntities">
+  <EntityContainerMapping StorageEntityContainer="truyenhayModelStoreContainer" CdmEntityContainer="truyenhayEntities1">
     <EntitySetMapping Name="Chuongs">
       <EntityTypeMapping TypeName="truyenhayModel.Chuong">
         <MappingFragment StoreEntitySet="Chuong">
@@ -10,7 +10,6 @@
           <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
           <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
           <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
-          <ScalarProperty Name="imagechuong" ColumnName="imagechuong" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -50,6 +49,15 @@
           <ScalarProperty Name="DanhSachDocID" ColumnName="DanhSachDocID" />
           <ScalarProperty Name="TruyenID" ColumnName="TruyenID" />
           <ScalarProperty Name="NgayThem" ColumnName="NgayThem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="imagechuongs">
+      <EntityTypeMapping TypeName="truyenhayModel.imagechuong">
+        <MappingFragment StoreEntitySet="imagechuong">
+          <ScalarProperty Name="IDchuongimage" ColumnName="IDchuongimage" />
+          <ScalarProperty Name="IDchuong" ColumnName="IDchuong" />
+          <ScalarProperty Name="imagechuong1" ColumnName="imagechuong" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

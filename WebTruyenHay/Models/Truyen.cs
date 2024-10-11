@@ -24,13 +24,12 @@ namespace WebTruyenHay.Models
             this.ThongBaos = new HashSet<ThongBao>();
             this.TienDoDocs = new HashSet<TienDoDoc>();
             this.TruyenDanhMucs = new HashSet<TruyenDanhMuc>();
-            imagetruyen = "~/Content/imagess/add.jpg";
         }
         public HttpPostedFileBase UploadImage { get; set; }
         public string IDtruyen { get; set; }
         public string TieuDe { get; set; }
         public string MoTa { get; set; }
-        public string TacGiaID { get; set; }
+        public string TacGia { get; set; }
         public Nullable<System.DateTime> NgayTao { get; set; }
         public string TrangThai { get; set; }
         public string imagetruyen { get; set; }
@@ -42,7 +41,6 @@ namespace WebTruyenHay.Models
         public virtual ICollection<DanhGia> DanhGias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DanhSachDocTruyen> DanhSachDocTruyens { get; set; }
-        public virtual NguoiDung NguoiDung { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ThongBao> ThongBaos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -171,50 +171,55 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Chuong.cs">
-      <DependentUpon>TruyenVip.tt</DependentUpon>
+      <DependentUpon>truyenhay.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChuongAndImage.cs" />
     <Compile Include="Models\DanhGia.cs">
-      <DependentUpon>TruyenVip.tt</DependentUpon>
+      <DependentUpon>truyenhay.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhMuc.cs">
-      <DependentUpon>TruyenVip.tt</DependentUpon>
+      <DependentUpon>truyenhay.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhSachDoc.cs">
-      <DependentUpon>TruyenVip.tt</DependentUpon>
+      <DependentUpon>truyenhay.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DanhSachDocTruyen.cs">
-      <DependentUpon>TruyenVip.tt</DependentUpon>
+      <DependentUpon>truyenhay.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\imagechuong.cs">
+      <DependentUpon>truyenhay.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NguoiDung.cs">
-      <DependentUpon>TruyenVip.tt</DependentUpon>
+      <DependentUpon>truyenhay.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ThongBao.cs">
-      <DependentUpon>TruyenVip.tt</DependentUpon>
+      <DependentUpon>truyenhay.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TienDoDoc.cs">
-      <DependentUpon>TruyenVip.tt</DependentUpon>
+      <DependentUpon>truyenhay.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Truyen.cs">
-      <DependentUpon>TruyenVip.tt</DependentUpon>
+      <DependentUpon>truyenhay.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TruyenDanhMuc.cs">
-      <DependentUpon>TruyenVip.tt</DependentUpon>
+      <DependentUpon>truyenhay.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TruyenVip.Context.cs">
+    <Compile Include="Models\truyenhay.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TruyenVip.Context.tt</DependentUpon>
+      <DependentUpon>truyenhay.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TruyenVip.cs">
+    <Compile Include="Models\truyenhay.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TruyenVip.tt</DependentUpon>
+      <DependentUpon>truyenhay.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TruyenVip.Designer.cs">
+    <Compile Include="Models\truyenhay.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TruyenVip.edmx</DependentUpon>
+      <DependentUpon>truyenhay.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\TruyenWithChapters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -223,19 +228,20 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\nguyenton.jfif" />
     <Content Include="Content\nav2.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\TruyenVip.Context.tt">
+    <Content Include="Models\truyenhay.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TruyenVip.edmx</DependentUpon>
-      <LastGenOutput>TruyenVip.Context.cs</LastGenOutput>
+      <DependentUpon>truyenhay.edmx</DependentUpon>
+      <LastGenOutput>truyenhay.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\TruyenVip.tt">
+    <Content Include="Models\truyenhay.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TruyenVip.edmx</DependentUpon>
-      <LastGenOutput>TruyenVip.cs</LastGenOutput>
+      <DependentUpon>truyenhay.edmx</DependentUpon>
+      <LastGenOutput>truyenhay.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -258,12 +264,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\TruyenVip.edmx">
+    <EntityDeploy Include="Models\truyenhay.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TruyenVip.Designer.cs</LastGenOutput>
+      <LastGenOutput>truyenhay.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\TruyenVip.edmx.diagram">
-      <DependentUpon>TruyenVip.edmx</DependentUpon>
+    <Content Include="Models\truyenhay.edmx.diagram">
+      <DependentUpon>truyenhay.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -286,10 +292,19 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\truyen\Indexuser.cshtml" />
+    <Content Include="Views\truyen\Index.cshtml" />
+    <Content Include="Views\truyen\Create.cshtml" />
+    <Content Include="Views\truyen\Detailsuser.cshtml" />
+    <Content Include="Views\truyen\Details.cshtml" />
+    <Content Include="Views\truyen\chuong.cshtml" />
+    <Content Include="Views\truyen\ReadTruyen.cshtml" />
+    <Content Include="Views\truyen\noidungchap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ChuongAndImage\" />
     <Folder Include="Views\HttpRequestHelper\" />
+    <Folder Include="Views\TruyenWithChapters\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>

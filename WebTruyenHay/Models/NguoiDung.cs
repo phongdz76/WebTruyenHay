@@ -21,7 +21,6 @@ namespace WebTruyenHay.Models
             this.DanhSachDocs = new HashSet<DanhSachDoc>();
             this.ThongBaos = new HashSet<ThongBao>();
             this.TienDoDocs = new HashSet<TienDoDoc>();
-            this.Truyens = new HashSet<Truyen>();
         }
     
         public string IDuser { get; set; }
@@ -39,7 +38,5 @@ namespace WebTruyenHay.Models
         public virtual ICollection<ThongBao> ThongBaos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TienDoDoc> TienDoDocs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Truyen> Truyens { get; set; }
     }
 }
