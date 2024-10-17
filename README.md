@@ -6,4 +6,4 @@
 - Test Case Sprint 2: [Test Case Sprint 2.xlsx](https://github.com/user-attachments/files/17421860/Test.Case.Sprint.2.xlsx)
 - [Definition of Done (Google Docs)](https://docs.google.com/document/d/1R4QmqxKYRrvpFzaf907eBr15jdUDTvJdXHKZQZku36k/edit?usp=drive_link)
 - [Report Spirnt 1 (Git)](https://github.com/phongdz76/WebTruyenHay/milestones)
-
+- [Report Spirnt 2 (Git)](https://github.com/phongdz76/WebTruyenHay/milestones)
