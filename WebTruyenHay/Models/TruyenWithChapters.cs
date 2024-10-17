@@ -10,5 +10,8 @@ namespace WebTruyenHay.Models
     {
         public Truyen Truyen { get; set; }
         public IEnumerable<Chuong> Chapters { get; set; }
+        public DanhGia commen { get; set; }
+        public IEnumerable<DanhGia> danhgia { get; set; }
+        
     }
 }

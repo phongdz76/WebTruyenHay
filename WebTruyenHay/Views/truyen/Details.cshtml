@@ -18,11 +18,17 @@
         <dd>
             @Html.DisplayFor(model => model.Truyen.MoTa)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Truyen.TacGia)
+        </dt>
         <dd>
             @Html.DisplayFor(model => model.Truyen.TacGia)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Truyen.imagetruyen)
+        </dt>
         <dd>
-            <img src="@Url.Content(Model.Truyen.imagetruyen)" alt="@Model.Truyen.TieuDe" />
+            <img src="@Url.Content(Model.Truyen.imagetruyen)" alt="@Model.Truyen.TieuDe" style="max-width: 300px; height: auto;" />
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Truyen.theloai)
@@ -32,7 +38,6 @@
         </dd>
     </dl>
 </div>
-
 <div>
     <h4>Chapters</h4>
     <hr />
@@ -51,9 +56,40 @@
     {
         <p>No chapters available for this story.</p>
     }
-<a href="@Url.Action("Chuong", "Truyen", new { id = Model.Truyen.IDtruyen })" class="btn btn-info">Tạo chương</a>
+    <a href="@Url.Action("Chuong", "Truyen", new { id = Model.Truyen.IDtruyen })" class="btn btn-info">Tạo chương</a>
 </div>
-
+<div>
+    <h4>Comments</h4>
+    <dd>
+        @Html.DisplayFor(model => model.commen.NhanXet)
+    </dd>
+</div>
+<div>
+  
+    <hr />
+    @if (Model.danhgia != null && Model.danhgia.Any())
+    {
+        <ul class="list-group">
+            @foreach (var comment in Model.danhgia)
+            {
+                <li class="list-group-item">
+                    <strong>@comment.NguoiDung</strong>
+                    <p>@comment.NhanXet</p>
+                    @if (comment.DiemDanhGia.HasValue)
+                    {
+                        <small>Rating: @comment.DiemDanhGia / 5</small>}
+                    @if (comment.NgayDanhGia.HasValue)
+                    {
+                        <small class="text-muted">@comment.NgayDanhGia.Value.ToString("dd/MM/yyyy HH:mm")</small>}
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No comments available for this story.</p>
+    }
+</div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Truyen.IDtruyen }) |
     @Html.ActionLink("Back to List", "Index")
