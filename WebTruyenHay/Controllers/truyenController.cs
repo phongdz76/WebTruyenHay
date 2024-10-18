@@ -159,11 +159,13 @@ namespace WebTruyenHay.Controllers
 
             var chapters = truyendata.Chuongs.Where(c => c.TruyenID == id).OrderByDescending(c => c.SoThuTu).ToList();
             var danhgia1 = truyendata.DanhGias.Where(s => s.TruyenID == id).ToList();
+            var danhgia2 = truyendata.DanhGias.Where(s => s.TruyenID == id).FirstOrDefault();
 
             var viewModel = new TruyenWithChapters
             {
                 Truyen = truyen,
                 Chapters = chapters,
+                commen =danhgia2,
                 danhgia =danhgia1
             };
 

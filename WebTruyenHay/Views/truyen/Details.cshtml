@@ -60,13 +60,15 @@
 </div>
 <div>
     <h4>Comments</h4>
-    <dd>
-        @Html.DisplayFor(model => model.commen.NhanXet)
-    </dd>
+    <div>
+        @Html.EditorFor(model => model.commen.NhanXet, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.commen.NhanXet, "", new { @class = "text-danger" })
+    </div>
 </div>
 <div>
   
     <hr />
+    
     @if (Model.danhgia != null && Model.danhgia.Any())
     {
         <ul class="list-group">
